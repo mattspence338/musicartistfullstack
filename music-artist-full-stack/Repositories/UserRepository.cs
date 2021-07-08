@@ -136,7 +136,10 @@ namespace music_artist_full_stack.Repositories
                 {
                     cmd.CommandText = @"
                             DELETE FROM [User]
-                            WHERE Id = @id
+                            WHERE Id = @id;
+
+                            DELETE FROM Comment
+                            WHERE UserId = @id
                         ";
 
                     cmd.Parameters.AddWithValue("@id", userId);
